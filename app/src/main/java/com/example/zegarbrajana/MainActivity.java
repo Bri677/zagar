@@ -1,6 +1,8 @@
 package com.example.zegarbrajana;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +11,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+    Button button1,button2;
+    Gracz gracz1,gracz2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +23,26 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+        button1=findViewById(R.id.button);
+        button2=findViewById(R.id.button2);
+        gracz1=new  Gracz(true,button1);
+        gracz2=new Gracz(false,button2);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gracz1.odwrocAktywnosc();
+                gracz2.odwrocAktywnosc();
+
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gracz1.odwrocAktywnosc();
+                gracz2.odwrocAktywnosc();
+
+            }
         });
     }
 }
